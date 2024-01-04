@@ -1,3 +1,62 @@
+<?php
+
+session_start();
+ if (isset($_POST["send"])){
+        // extraction des variables
+    extract($_POST);
+        // vérification si les variables existent et ne sont pas vides
+    if(isset($nom) && $nom !="" &&
+    if(isset($prenom) && $prenom !="" &&
+    if(isset($telephon) && $telephone !="" &&
+    if(isset($email) && $email !="" &&
+    if(isset($message) && $message !="" ){
+
+    }
+ }
+
+// Traitement des données (vous pouvez ajouter votre propre logique ici)
+ // Envoyer l'email
+            
+            // le destinataire ( votre adresse mail)
+            
+        $to = "jybourbon@gmx.fr";
+            // objet du mail
+        $subject = "Essai email";. $email;
+
+        $message = "
+        <p>Vous avez reçu un message de <strong>".$email."</strong></p>
+        <p><strong>nom :</strong>".$nom."</p>
+        <p><strong>prenom :</strong>".$prenom."</p>
+        <p><strong>telephone :</strong>".$telephone."</p>
+        <p><strong>email :</strong>".$email."</p>
+        <p><strong>message :</strong>".$message."</p>
+        ";
+
+        
+        // Toujours définir le type de contenu lors de l'envoi d'emails HTML
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+        // Plus d'en-têtes
+        $headers .= 'From: <".$email."">' . "\r\n";<br>
+      
+        // Envoi du mail
+        $send mail($to,$subject,$message,$headers);
+        // Verification de l'envoi
+        if($send){
+            $_SESSION["succes_message"] = "Message envoyé";
+         
+        }else {
+            $info ="méssage non envoyé";
+        }
+    }else{
+        // si elles sont vides
+        $info = "Veuillez remplir tous les champs !";
+    }
+}
+
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +66,29 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <?php
+        // Afficher le message d'erreur
+        if(isset($info)) { ?>
+            <p class="request_message" style="color:red">
+                <?=$info?>
+            </p>
+        <?php
+    }
+?>
 
-<div class="container">
+    <?php
+        // Afficher le message de succes
+        if(isset($_SESSION["succes_message"])) { ?>
+            <p class="request_message" style="color:green">
+                <?= $_SESSION["succes_message"]?>
+            </p>
+        <?php
+    }
+?>
 
-    <h2>Contactez-nous</h2>
-
-    <form action="index.php" method="post">
+    
+    <form action="" method="post">
+        <h2>Contactez-nous</h2>
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required>
 
@@ -31,6 +107,9 @@
         <input type="submit" value="Envoyer">
     </form>
 </div>
+
+</body>
+</html>
 
 </body>
 </html>
