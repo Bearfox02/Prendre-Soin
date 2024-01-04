@@ -7,27 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <?php
-        // Afficher le message d'erreur
-        if(isset($info)) { ?>
-            <p class="request_message" style="color:red">
-                <?=$info?>
-            </p>
-        <?php
-    }
-?>
-
-    <?php
-        // Afficher le message de succes
-        if(isset($_SESSION["succes_message"])) { ?>
-            <p class="request_message" style="color:green">
-                <?= $_SESSION["succes_message"]?>
-            </p>
-        <?php
-    }
-?>
-
-    
+      
     <form action="" method="post">
         <h2>Contactez-nous</h2>
         <label for="nom">Nom :</label>
