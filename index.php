@@ -19,7 +19,7 @@ session_start();
             
             // le destinataire ( votre adresse mail)
             
-        $to = "jybourbon@gmx.fr";
+        $to = "jenaimar@gmx.fr";
             // objet du mail
         $subject = "Essai email";. $email;
 
