@@ -1,7 +1,9 @@
 <?php
 $error = [];
 if ($_POST) {
-
+ $to = "jybourbon@gmx.fr";
+            // objet du mail
+        $subject = "Essai email";. $email
 
   // vérification de la présence du nom
 
@@ -36,12 +38,15 @@ if ($_POST) {
   if (empty($_POST['user_message'])) {$error['message1'] = 'Le champ message doit être complèté';}
 
   if (count($error) == 0) {echo 'Félicitations ! Votre formulaire a bien été transmis <br><br>';}
+
+   // Envoi du mail
+        $send mail($to,$subject,$message);
 }
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -122,7 +127,7 @@ if ($_POST) {
 
 
     <footer id="footer">
-      <p>by Véronique - <a href="https://wildcodeschool.fr/strasbourg/">Wild Code School Strasbourg</a> - 2018_09_23</p>
+      <p2023_09_23</p>
     </footer>
 
 </body>
