@@ -1,10 +1,7 @@
 <?php
 $error = [];
 if ($_POST) {
- $to = "jybourbon@gmx.fr";
-            // objet du mail
-        $subject = "Essai email";. $email
-
+ 
   // vérification de la présence du nom
 
   if (empty($_POST['user_name']))  $error['name1'] = 'Ce champ doit être complété';
@@ -38,9 +35,7 @@ if ($_POST) {
   if (empty($_POST['user_message'])) {$error['message1'] = 'Le champ message doit être complèté';}
 
   if (count($error) == 0) {echo 'Félicitations ! Votre formulaire a bien été transmis <br><br>';}
-
-   // Envoi du mail
-        $send mail($to,$subject,$message);
+  
 }
 ?>
 
